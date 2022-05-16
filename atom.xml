@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-16T12:49:14.040Z</updated>
+  <updated>2022-05-16T12:51:41.923Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2022/05/16/C++%20%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
     <id>http://example.com/2022/05/16/C++%20%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/</id>
     <published>2022-05-16T12:39:14.583Z</published>
-    <updated>2022-05-16T12:49:14.040Z</updated>
+    <updated>2022-05-16T12:51:41.923Z</updated>
     
     <content type="html"><![CDATA[<p>[toc]</p><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul><li>C++ 高性能服务器框架（High Performance Server&#x2F;HPS）</li><li>可作为WEB、数据库、游戏等服务器</li><li>框架提供基本的线程、协程库，IO库，TCP、HTTP网络应用接口</li></ul><h1 id="日志模块"><a href="#日志模块" class="headerlink" title="日志模块"></a>日志模块</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><ul><li>功能：向文件或者控制台输出服务器日志信息</li></ul><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><ul><li>日志等级（LogLevel）<ul><li>unknow、debug、info、warn、error、fatal 6个级别，报告服务器的各种类型的日志信息</li></ul></li><li>日志事件（LogEvent）<ul><li>成员属性：包含输出每个日志项的所有属性，如下：<ul><li>日志级别</li><li>文件名</li><li>文件行号</li><li>程序启动依赖的耗时</li><li>线程id</li><li>协程id</li><li>日志时间</li><li>线程名称</li></ul></li></ul></li><li>日志格式器（LogFormatter）<ul><li>功能：使用log4j格式，对输入的格式字符串进行解析<ul><li>默认格式 “%d</li></ul></li></ul></li></ul>]]></content>
     

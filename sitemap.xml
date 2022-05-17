@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2022/05/16/Operating%20System/</loc>
     
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,34 @@
   <url>
     <loc>http://example.com/2022/05/16/Data%20structure%20and%20algorithm/</loc>
     
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/05/17/Researsh/</loc>
+    
+    <lastmod>2022-05-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/05/17/Essential%20Skills/</loc>
+    
+    <lastmod>2022-05-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/05/17/MySQL/</loc>
+    
+    <lastmod>2022-05-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +49,16 @@
   <url>
     <loc>http://example.com/2022/05/16/C++%20%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/</loc>
     
-    <lastmod>2022-05-16</lastmod>
+    <lastmod>2022-05-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/2022/05/17/Computer%20Networks/</loc>
+    
+    <lastmod>2022-05-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -56,14 +92,28 @@
 
   
   <url>
-    <loc>http://example.com/tags/operating-System/</loc>
+    <loc>http://example.com/tags/Skills/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/data-structure/</loc>
+    <loc>http://example.com/tags/Algorithm-And-Data-Structure/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Operating-System/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Research/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -71,6 +121,20 @@
   
   <url>
     <loc>http://example.com/tags/C/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/SQL/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Computer-Networks/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -86,6 +150,13 @@
 
   
   <url>
+    <loc>http://example.com/categories/%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -93,7 +164,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>http://example.com/categories/%E7%A7%91%E7%A0%94/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -101,6 +172,13 @@
   
   <url>
     <loc>http://example.com/categories/%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

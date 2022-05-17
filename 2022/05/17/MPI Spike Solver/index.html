@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Archive | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <title>MPI Spike Solver | Hexo</title>
+  <meta name="description" content="MPI Spike Solver概述：​	这个项目是研究生阶段的课题组项目，主要作为工业仿真软件的底层组件，它的应用场景是：并行求解使用有限元方法离散化偏微分方程组时产生的大型带状线性方程组，算法框架为SPIKE算法，是基于计算数学教授Polizzi的一篇论文。 ​	作为项目的编写设计者，使用C&#x2F;C++对基础算法框架进行复现，并且对原有基本算法进行了改进优化，主要是：在程序执行时，提高各">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MPI Spike Solver">
+<meta property="og:url" content="http://example.com/2022/05/17/MPI%20Spike%20Solver/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MPI Spike Solver概述：​	这个项目是研究生阶段的课题组项目，主要作为工业仿真软件的底层组件，它的应用场景是：并行求解使用有限元方法离散化偏微分方程组时产生的大型带状线性方程组，算法框架为SPIKE算法，是基于计算数学教授Polizzi的一篇论文。 ​	作为项目的编写设计者，使用C&#x2F;C++对基础算法框架进行复现，并且对原有基本算法进行了改进优化，主要是：在程序执行时，提高各">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-17T06:22:51.208Z">
+<meta property="article:modified_time" content="2022-05-17T13:26:32.696Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Research">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/archives/index.html">
+  <link rel="canonical" href="http://example.com/2022/05/17/MPI%20Spike%20Solver/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -305,129 +310,202 @@
 
   
   
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MPI-Spike-Solver"><span class="toc-number">1.</span> <span class="toc-text">MPI Spike Solver</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">简介：</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive</h1>
-	      <p class="text-muted">Total 9 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-MPI Spike Solver" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      MPI Spike Solver
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/05/17/MPI%20Spike%20Solver/" class="article-date">
+	  <time datetime="2022-05-17T06:22:51.208Z" itemprop="datePublished">2022-05-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%A0%94%E7%A9%B6/">研究</a>►<a class="article-category-link" href="/categories/%E7%A0%94%E7%A9%B6/%E9%A1%B9%E7%9B%AE/">项目</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Research/" rel="tag">Research</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/17/MPI%20Spike%20Solver/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="MPI-Spike-Solver"><a href="#MPI-Spike-Solver" class="headerlink" title="MPI Spike Solver"></a>MPI Spike Solver</h1><h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p>​	这个项目是研究生阶段的课题组项目，主要作为工业仿真软件的底层组件，它的应用场景是：并行求解使用有限元方法离散化偏微分方程组时产生的大型带状线性方程组，算法框架为SPIKE算法，是基于计算数学教授Polizzi的一篇论文。</p>
+<p>​	作为项目的编写设计者，使用C&#x2F;C++对基础算法框架进行复现，并且对原有基本算法进行了改进优化，主要是：在程序执行时，提高各并行进程的利用率，降低节点之间的数据通信量，优化算法结构等，项目完成之后在天河二号上测试运行。</p>
+<p>​	测试运行结果：与传统的线性代数求解库Scalapack的带状方程求解例程相对比，该求解器的求解速度更快，扩展性更高，适应的带状矩阵类型也更广泛。</p>
+<p>​	总体的求解步骤：</p>
+<p>​	首先将线性方程组的系数矩阵沿对角线（带状非零项）进行分区，每个分区分配一个进程，每个进程对各自分区中的矩阵进行分解、求解等处理，处理完成之后，在分区交界处会形成一个系统，称为简化系统，需要对简化系统同样进行并行处理；</p>
+<p>​	接下来进入递归化简阶段，就是将分区数（系数矩阵A和右矩阵B的分区）一步步成倍缩小，每个递归层进行相似处理，这里我举个例子，比如初始由32个分区，那么在第一个递归层中首先处理简化系统、然后求解分块线性方程组得到下一递归层所需要的矩阵数据，之后采用MPI点对点通信向下一递归层传送对应矩阵数据，总的来说第一层32个分区，第二层16个分区，。。。，第5层2个分区；</p>
+<p>​	最后进入恢复求解阶段，求解只有两个分区的AX&#x3D;B，得到最终解X。</p>
+<h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><ul>
+<li>智慧工程课题组项目</li>
+<li>名称：分布式大型带状线性方程组并行求解器（MPI SPIKE Solver）</li>
+<li>应用场景：主要作为工业仿真软件的底层组件，它的应用场景是：并行求解使用有限元方法离散化偏微分方程组时产生的大型带状线性方程组</li>
+<li>语言：C&#x2F;C++</li>
+<li>运行测试平台：天河二号</li>
+<li>源码：<a target="_blank" rel="noopener" href="https://github.com/Miracle-Pig/MPI-SPIKE-SOLVER">Miracle-Pig&#x2F;MPI-SPIKE-SOLVER (github.com)</a></li>
+<li>专利：<a target="_blank" rel="noopener" href="https://github.com/Miracle-Pig/MPI-SPIKE-SOLVER/blob/main/docs/%E4%B8%80%E7%A7%8D%E5%B9%B6%E8%A1%8C%E6%B1%82%E8%A7%A3%E6%9C%89%E9%99%90%E5%85%83%E9%97%AE%E9%A2%98%E4%B8%AD%E5%A4%A7%E5%9E%8B%E5%B8%A6%E7%8A%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%8F%91%E6%98%8E%EF%BC%890322%E6%94%B9%E7%A8%BF2(1)(1).docx">MPI-SPIKE-SOLVER&#x2F;一种并行求解有限元问题中大型带状线性方程组的方法（发明）0322改稿2(1)(1).docx at main · Miracle-Pig&#x2F;MPI-SPIKE-SOLVER (github.com)</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/17/MPI%20Spike%20Solver/" title="MPI Spike Solver" target="_blank" rel="external">http://example.com/2022/05/17/MPI Spike Solver/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Miracle-Pig" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Miracle-Pig" target="_blank"><span class="text-dark">Miracle-Pig</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2022" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2022
-            </a>
-            <!-- <a href="/archives/2022" class="archive-year">2022</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/05/17/Researsh/" title="研究生涯"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">    <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2022" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2022">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2022/05/17/MPI%20Spike%20Solver/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-17T06:22:51.208Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> MPI Spike Solver
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-    
-    
-    
-<a href="/2022/05/17/Researsh/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-17T05:42:49.336Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 研究生涯
-</a>
 
-
-  
-    
-    
-    
-<a href="/2022/05/17/Essential%20Skills/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-17T05:39:11.128Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Essential Skills
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/17/MySQL/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-17T05:35:42.997Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> MySQL
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/17/Computer%20Networks/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-17T05:30:39.849Z" itemprop="datePublished">2022-05-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Computer Networks
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/16/Operating%20System/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-16T15:46:36.945Z" itemprop="datePublished">2022-05-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Operating System
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/16/Data%20structure%20and%20algorithm/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-16T14:47:49.706Z" itemprop="datePublished">2022-05-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Algorithm And Data Structure
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/16/C&C++%20Notebool/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-16T13:18:43.719Z" itemprop="datePublished">2022-05-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> C&amp;C++ Notebook
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/05/16/C++%20%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" class="collection-item"   itemprop="url">
-  <time datetime="2022-05-16T13:10:12.678Z" itemprop="datePublished">2022-05-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> C++ 高性能服务器框架
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -482,6 +560,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 

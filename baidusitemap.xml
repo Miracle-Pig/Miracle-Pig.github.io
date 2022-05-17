@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://example.com/2022/05/16/C&C++%20Notebool/</loc>
+    <loc>http://example.com/2022/05/16/Operating%20System/</loc>
+    <lastmod>2022-05-16</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2022/05/16/Data%20structure%20and%20algorithm/</loc>
     <lastmod>2022-05-16</lastmod>
   </url>
   <url>
@@ -9,7 +13,7 @@
     <lastmod>2022-05-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/05/16/hello-world/</loc>
+    <loc>http://example.com/2022/05/16/C&C++%20Notebool/</loc>
     <lastmod>2022-05-16</lastmod>
   </url>
 </urlset> 

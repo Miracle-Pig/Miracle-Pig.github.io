@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Operating System | Hexo</title>
+  <meta name="description" content="面试什么是操作系统 运行在计算机上的程序 管理计算机硬件和软件资源 屏蔽了硬件层的复杂性 内核负责系统的内存管理、硬件设备的管理、文件系统的管理以及应用程序的管理  系统调用 用户态 K用户态运行的进程可直接读取用户数据   内核态 内核态运行的进程能访问系统一切的内核资源在用户态运行程序时，凡是和内核态资源相关的操作，都必须通过系统调用的方式向操作系统提出服务请求，并由操作系统代为完成 系统调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operating System">
+<meta property="og:url" content="http://example.com/2022/05/16/Operating%20System/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="面试什么是操作系统 运行在计算机上的程序 管理计算机硬件和软件资源 屏蔽了硬件层的复杂性 内核负责系统的内存管理、硬件设备的管理、文件系统的管理以及应用程序的管理  系统调用 用户态 K用户态运行的进程可直接读取用户数据   内核态 内核态运行的进程能访问系统一切的内核资源在用户态运行程序时，凡是和内核态资源相关的操作，都必须通过系统调用的方式向操作系统提出服务请求，并由操作系统代为完成 系统调用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-16T15:46:36.945Z">
+<meta property="article:modified_time" content="2022-05-16T16:23:30.789Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="operating System">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2022/05/16/Operating%20System/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Miracle-Pig" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Miracle-Pig</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Miracle-Pig" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/" rel="tag">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/operating-System/" rel="tag">operating System</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/" rel="tag">project</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/data-structure/" style="font-size: 13px;">data structure</a> <a href="/tags/operating-System/" style="font-size: 13px;">operating System</a> <a href="/tags/project/" style="font-size: 13px;">project</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/Operating%20System/" class="title">Operating System</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-16T15:46:36.945Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/Data%20structure%20and%20algorithm/" class="title">Algorithm And Data structure</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-16T14:47:49.706Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AF%AD%E8%A8%80/">语言</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/C&C++%20Notebool/" class="title">C&amp;C++ Notebook</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-16T13:18:43.719Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/16/C++%20%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" class="title">C++ 高性能服务器框架</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-16T13:10:12.678Z" itemprop="datePublished">2022-05-16</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">面试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">系统调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">进程和线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">三种同步方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-number">1.5.</span> <span class="toc-text">进程调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81"><span class="toc-number">1.6.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80"><span class="toc-number">1.7.</span> <span class="toc-text">操作系统内存管理基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91-%E8%99%9A%E6%8B%9F-%E5%9C%B0%E5%9D%80%E5%92%8C%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-number">1.7.1.</span> <span class="toc-text">逻辑(虚拟)地址和物理地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E8%A1%A8%E5%92%8C%E5%A4%9A%E7%BA%A7%E9%A1%B5%E8%A1%A8"><span class="toc-number">1.7.2.</span> <span class="toc-text">块表和多级页表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E6%9C%BA%E5%88%B6%E5%92%8C%E5%88%86%E6%AE%B5%E6%9C%BA%E5%88%B6%E7%9A%84%E5%85%B1%E5%90%8C%E7%82%B9%E5%92%8C%E5%8C%BA%E5%88%AB"><span class="toc-number">1.7.3.</span> <span class="toc-text">分页机制和分段机制的共同点和区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E8%99%9A%E6%8B%9F%E5%AF%BB%E5%9D%80"><span class="toc-number">1.7.4.</span> <span class="toc-text">CPU虚拟寻址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="toc-number">1.8.</span> <span class="toc-text">虚拟内存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-number">1.8.1.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.8.2.</span> <span class="toc-text">虚拟存储器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.8.3.</span> <span class="toc-text">虚拟内存的技术实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.8.4.</span> <span class="toc-text">页面置换算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.9.</span> <span class="toc-text">进程管理</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Operating System" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Operating System
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/05/16/Operating%20System/" class="article-date">
+	  <time datetime="2022-05-16T15:46:36.945Z" itemprop="datePublished">2022-05-16</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/operating-System/" rel="tag">operating System</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/05/16/Operating%20System/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><h2 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h2><ul>
+<li>运行在计算机上的程序</li>
+<li>管理计算机硬件和软件资源</li>
+<li>屏蔽了硬件层的复杂性</li>
+<li>内核负责系统的内存管理、硬件设备的管理、文件系统的管理以及应用程序的管理</li>
+</ul>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><ul>
+<li>用户态<ul>
+<li>K用户态运行的进程可直接读取用户数据</li>
+</ul>
+</li>
+<li>内核态<ul>
+<li>内核态运行的进程能访问系统一切的内核资源<br>在用户态运行程序时，凡是和内核态资源相关的操作，都必须通过系统调用的方式向操作系统提出服务请求，并由操作系统代为完成</li>
+<li>系统调用按功能大致分为如下几类<br>设备管理。完成设备的请求或释放，以及设备启动等功能。<br>文件管理。完成文件的读、写、创建及删除等功能。<br>进程控制。完成进程的创建、撤销、阻塞及唤醒等功能。<br>进程通信。完成进程之间的消息传递或信号传递等功能。<br>内存管理。完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><ul>
+<li>联系与区别<ul>
+<li>一个进程可存在多个线程，线程是进程划分成的更小的运行单位；多个线程共享进程的堆区、用户代码区、静态存储区，每个线程拥有各自独立的栈区、寄存器、程序计数器；多个进程相互独立、而多个线程会相互影响。</li>
+</ul>
+</li>
+<li>进程状态：<ul>
+<li>创建：进程正在被创建，尚未到就绪状态</li>
+<li>就绪：进程处于准备运行状态，拥有除处理机外的一切</li>
+<li>资源，即当拥有处理机资源时会立即进入运行状态</li>
+<li>阻塞：进程等待某一事件而暂停运行如等待某资源为可用或等待IO操作完成。</li>
+<li>运行：进程正在处理器上运行</li>
+<li>结束：进程正在系统中消失</li>
+</ul>
+</li>
+<li>进程间通信方式<ul>
+<li>管道<ul>
+<li>匿名：具有亲情关系的进程间通信，存在于内存中</li>
+<li>有名：先进先出，以磁盘文件形式存在</li>
+<li>信号<ul>
+<li>较为复杂的通信方式，通知或接受进程某个事件发生</li>
+</ul>
+</li>
+<li>消息队列：<ul>
+<li>进程间消息的链表</li>
+<li>存在于内存中，使用消息队列标志进行标识<br>通信时先进先出</li>
+<li>读取时可随机读取，也可按消息的类型读取<br>克服了信号承载信息量少、管道只能承载无格式字节流、缓冲区大小受限等缺点<br>信号量</li>
+<li>进程间共享资源的计数器，意图在于进程间同步，避免竞争条件<br>共享内存</li>
+<li>多个进程访问同一块内存空间，不同进程可及时看到对方进程中对共享数据的更新</li>
+<li>需要互斥锁、信号量等同步操作进行协调<br>最有效的通信方式</li>
+</ul>
+</li>
+<li>套接字<ul>
+<li>客户端进程与服务端进程之间进行通信<br>TCP&#x2F;IP的基本操作单元</li>
+<li>不同主机之间的进程进行双向通信<br>线程间的同步方式</li>
+<li>在两个或多个具有共享资源的线程并发执行时，使用同步方式避免关键资源的使用冲突</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三种同步方式"><a href="#三种同步方式" class="headerlink" title="三种同步方式"></a>三种同步方式</h2><ul>
+<li>互斥量<ul>
+<li>通过使用互斥对象机制，只有拥有互斥对象的线程才有资格访问共享资源</li>
+<li>互斥对象只有一个，可保证公共资源不会被多个线程同时访问</li>
+</ul>
+</li>
+<li>信号量<ul>
+<li>多个线程在同一时刻可以同时访问共享资源，但访问资源的最大线程数会被限制</li>
+</ul>
+</li>
+<li>PV操作<ul>
+<li>以通知的方式来保持多线程同步，可方便的实现多线程优先级的比较操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h2><ul>
+<li>先来先服务：从就绪队列中选择最先进入该队列的进程为之分配资源<ul>
+<li>balady异常</li>
+</ul>
+</li>
+<li>短作业优先：从就绪队列中选择估计执行时间最短的进程为之分配资源</li>
+<li>优先级调度：从就绪队列中选择最高优先级的进程为之分配资源</li>
+<li>时间片轮转：每个进程被分配一个时间段，称作它的时间片，即该进程允许运行的时间</li>
+<li>多级反馈队列：既能使高优先级的作业及时得到响应又能使短作业（进程）迅速完成，最好的调度算法，UNIX采取的使这种</li>
+</ul>
+<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><ul>
+<li>概念：多个进程&#x2F;线程同时被阻塞，它们中的一个或全部都在等待某个资源被释放，由于进程&#x2F;线程被无限期地阻塞，因此程序不能正常终止</li>
+<li>必要条件<ul>
+<li>互斥条件：共享资源在同一时刻只能被一个进程使用</li>
+<li>不可剥夺条件：进程当前所拥有地资源不能被其他进程抢占<br>请求和保持条件：一个进程拥有资源且要申请其他资源（这个资源被其他进程占有）</li>
+<li>循环等待条件：有一组进程{P0，P1…，Pn}，P0等待的进程被P1占有。。。</li>
+</ul>
+</li>
+<li>解决死锁的方法<ul>
+<li>预防：采用某种策略，限制并发进程对资源的请求，提前破坏必要条件</li>
+<li>破坏互斥条件：资源可同时访问，最简单的方法，但有些资源禁止同时访问</li>
+<li>破坏不可剥夺条件：剥夺式调度算法，仅适用于主存资源和处理器资源，会导致资源利用率下降</li>
+<li>破坏请求和保持条件（静态分配策略）：进程在执行前就申请到它所需要的全部资源，申请不到则不占有资源，</li>
+<li>破坏循环等待条件（层次分配策略）：一个进程只能请求和释放高层次的资源，这样就不会出现循环等待链</li>
+</ul>
+</li>
+<li>避免：系统在分配资源时，根据使用情况提前做出预测，避免死锁发生<ul>
+<li>将系统分为安全状态和不安全状态<ul>
+<li>若系统将资源分配给申请者会产生死锁（不安全状态），则拒绝分配；否则（安全状态）接受申请，分配资源</li>
+</ul>
+</li>
+<li>通过Dijkstra的银行家算法，保持系统安全状态：当一个进程申请使用资源的时候，银行家算法试探性地分配该进程资源，然后通过安全性算法判断分配后地系统是否处于安全状态，若不安全则试探分配作废，让该进程继续等待，若能够进入安全状态，则就真分配资源给该进程</li>
+<li>改善解决了资源使用率低的问题，但需要检测每个进程资源占用和申请情况，以及安全性检测，需要花费较多的时间<br>检测：系统设定专门的机构，死锁发生时，该机构能够检测死锁的发生，并精确地确定与死锁有关地进程和资源</li>
+<li>对资源地分配加以限制可预防和避免死锁地发生，但不利于资源在进程之间充分共享 </li>
+<li>死锁的检测不去提前预防和避免死锁的发生，而是直接分配资源，当程序发生死锁时，检测死锁发生的进程和其资源，之后采用特定方法进行解除</li>
+<li>使用进程-资源分配图检测系统是否处于死锁状态<br>没有环路时，则系统不存在死锁状态</li>
+<li>如果进程-资源分配图中有环路，且每个资源类仅有一个资源，则系统中已经发生了死锁。</li>
+<li>如果进程-资源分配图中有环路，且涉及到的资源类有多个资源，此时系统未必会发生死锁。如果能在进程-资源分配图中找出一个 既不阻塞又非独立的进程 ，该进程能够在有限的时间内归还占有的资源，也就是把边给消除掉了，重复此过程，直到能在有限的时间内 消除所有的边 ，则不会发生死锁，否则会发生死锁。(消除边的过程类似于 拓扑排序)<br>解除：四种方法</li>
+<li>立即结束所有进程，重启系统：方法简单，损失较大<br>撤销死锁进程，解除后继续运行：损失同样较大<br>逐个撤销涉及死锁的进程，回收其资源直至死锁解除</li>
+<li>抢占资源<ul>
+<li>操作系统内存管理基础</li>
+</ul>
+</li>
+<li>连续分配<ul>
+<li>块式：将内存分为多个固定大小的块，每个块包含一个进程，会产生较大的内存碎片</li>
+</ul>
+</li>
+<li>非连续分配<ul>
+<li>页式：将主存分为大小相等且固定的一页一页的形式，页无实际意义，页较小，较块式划分粒度更小，提高内存利用率，页式管理通过页表将逻辑地址转换为物理地址</li>
+<li>段式：把主存分为一段一段，段有实际意义，每个段定义了一组逻辑信息，例如将一个程序分为主程序段、子程序段、数据段、栈段等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="操作系统内存管理基础"><a href="#操作系统内存管理基础" class="headerlink" title="操作系统内存管理基础"></a>操作系统内存管理基础</h2><h3 id="逻辑-虚拟-地址和物理地址"><a href="#逻辑-虚拟-地址和物理地址" class="headerlink" title="逻辑(虚拟)地址和物理地址"></a>逻辑(虚拟)地址和物理地址</h3><ul>
+<li>虚拟地址<ul>
+<li>进程可用的虚拟地址范围成为虚拟地址空间，编程只可能和逻辑地址打交道</li>
+<li>虚拟地址&#x3D;虚拟页号+页内偏移量</li>
+</ul>
+</li>
+<li>物理地址<ul>
+<li>真实物理内存中的地址，就是内存地址寄存器中的地址</li>
+<li>物理地址&#x3D;物理页号+页内偏移量<h3 id="块表和多级页表"><a href="#块表和多级页表" class="headerlink" title="块表和多级页表"></a>块表和多级页表</h3></li>
+</ul>
+</li>
+<li>分页内存管理，最重要的两点<ul>
+<li>虚拟地址到物理地址的转换要快</li>
+<li>解决虚拟地址空间越大页表越大的问题</li>
+</ul>
+</li>
+<li>块表<ul>
+<li>一种特殊的高速缓冲存储器（cache）</li>
+<li>在有块表存在的情况下，虚拟地址转换为物理地址的流程<ul>
+<li>根据虚拟页号查询快表<ul>
+<li>若存在虚拟页号和物理页号映射的快表项，则<strong>直接</strong>取得物理页号和页内偏移量拼接形成物理地址（读写数据时，访问一次cache和一次主存）</li>
+<li>若不存在，则访问页表，找到虚拟页号和物理页号映射的页表项，取得物理页号和页内偏移量拼接形成物理地址，之后将此映射添加到快表中，若快表已满，则使用一定淘汰策略替换某个快表项（读写数据时，访问一次cache和两次主存）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多级页表<ul>
+<li>时间换空间</li>
+<li>使用多级页表避免将所有页表项都放入内存，有些不必要的页表项不必要保留在内存中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分页机制和分段机制的共同点和区别"><a href="#分页机制和分段机制的共同点和区别" class="headerlink" title="分页机制和分段机制的共同点和区别"></a>分页机制和分段机制的共同点和区别</h3><ul>
+<li>共同点<ul>
+<li>都是为了提高内存的利用率，减少内存碎片</li>
+<li>都是不连续（离散）分配方式，但在页&#x2F;段内为连续分配</li>
+</ul>
+</li>
+<li>区别<ul>
+<li>页为固定大小；段大小不固定，取决于当前程序</li>
+<li>页只是单纯的满足OS内存管理的需求，每一页不代表任何意义；段是程序逻辑信息的单位，在程序中可体现为代码段、数据段满足用户需求</li>
+</ul>
+</li>
+</ul>
+<h3 id="CPU虚拟寻址"><a href="#CPU虚拟寻址" class="headerlink" title="CPU虚拟寻址"></a>CPU虚拟寻址</h3><ul>
+<li>将虚拟地址转换为物理地址</li>
+<li>CPU内存管理单元进行操作</li>
+<li>为什么要有虚拟地址空间呢？<ul>
+<li>直接访问内存空间，会对操作系统造成伤害</li>
+<li>不能同时运行多个程序</li>
+</ul>
+</li>
+<li>优势：<ul>
+<li>使用虚拟地址空间通过页表可使用内存中不相邻的大内存</li>
+<li>程序可使用一系列虚拟地址来访问大于可用物理内存的内存缓冲区，当物理内存的供应量变小时，内存管理器会将物理页保存到磁盘文件。数据或代码页会根据需要在物理内存与磁盘文件之间移动</li>
+</ul>
+</li>
+</ul>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><ul>
+<li>OS中许多软件，这些软件<strong>“需要”</strong>占用的内存远远大于实际的物理内存</li>
+<li>通过虚拟内存可让程序可拥有超过系统物理内存大小的可用内存空间</li>
+<li>虚拟内存为每个进程提供了一个一致的、私有的地址空间，让每个进程产生一种自己在独享主存的错觉（每个进程拥有一片连续完整的内存空间）<h3 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h3></li>
+<li>时间局部性：如果程序中的某条指令一旦执行，不久以后该指令可能再次执行；如果某数据被访问过，不久以后该数据可能再次被访问。<strong>产生时间局部性的典型原因，是由于在程序中存在着大量的循环操作</strong>。</li>
+<li>空间局部性 ：一旦程序访问了某个存储单元，在不久之后，其附近的存2储单元也将被访问，即程序在一段时间内所访问的地址，可能集中在一定的范围之内，<strong>这是因为指令通常是顺序存放、顺序执行的，数据也一般是以向量、数组、表等形式簇聚存储的。</strong><h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3></li>
+<li>程序在运行时所需要的内存比实际占用的内存要大得多，虚拟存储器只将程序需要的一部分调入内存，其他部分仍在外存。当程序访问到的数据不在内存时，由OS将所需要的部分调入内存。OS将内存中暂时不使用的内容换到外存上，腾出空间存放将要调入内存的信息。<h3 id="虚拟内存的技术实现"><a href="#虚拟内存的技术实现" class="headerlink" title="虚拟内存的技术实现"></a>虚拟内存的技术实现</h3></li>
+<li>请求分页：程序运行之前，仅装入当前要执行的部分段即可运行，运行过程中若发现访问的页面不在内存，则处理器通知OS按对应的页面置换算法将相应的页面调入到主存，同时OS将暂时不用的页面置换到外存中。</li>
+<li>请求分段：在程序开始运行之前，仅装入当前要执行的部分段即可运行，在执行过程中，可使用请求调入中断动态装入要访问但又不在内存的程序段，当内存空间已满，而又需要装入新的段时，根据置换功能适当调出某个段，以便腾出空间而装入新的段。</li>
+<li>这里多说一下？很多人容易搞混请求分页与分页存储管理，两者有何不同呢？<ul>
+<li>根本区别在于是否将程序的全部地址空间都装入主存；</li>
+<li>都需要：<ul>
+<li>一定容量的内存和外存：在载入程序的时候，只需要将程序的一部分装入内存，而将其他部分留在外存，然后程序就可以执行了；</li>
+<li>缺页中断：如果需执行的指令或访问的数据尚未在内存（称为缺页或缺段），则由处理器通知操作系统将相应的页面或段调入到内存，然后继续执行程序；</li>
+<li>虚拟内存：逻辑地址到物理地址的变换<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最佳置换算法：淘汰之后不会使用或者很久不使用的页面</li>
+<li>先进先出置换算法：淘汰最早装入内存的页面<ul>
+<li>belady异常</li>
+</ul>
+</li>
+<li>最近最久未使用算法：在各页面设置一个装入内存距离当前时间的标记T，淘汰T值最大的页面</li>
+<li>最少使用页面置换算法：选择在之前使用最少的页面作为淘汰页</li>
+</ul>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><ul>
+<li>为什么要用线程池？<ul>
+<li>池化技术<ul>
+<li>线程池、数据库连接池、Http 连接池</li>
+<li>主要是为了减少<strong>每次获取资源的消耗</strong>，<strong>提高对资源的利用率</strong>。</li>
+</ul>
+</li>
+<li>线程池提供了一种限制和管理资源（包括执行一个任务）的方式。每个线程池还维护一些基本统计信息，例如已完成任务的数量。<ul>
+<li>降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li>提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li>提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/05/16/Operating%20System/" title="Operating System" target="_blank" rel="external">http://example.com/2022/05/16/Operating System/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Miracle-Pig" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Miracle-Pig" target="_blank"><span class="text-dark">Miracle-Pig</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/05/16/Data%20structure%20and%20algorithm/" title="Algorithm And Data structure"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">    <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Miracle-Pig" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
